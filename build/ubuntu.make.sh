@@ -8,7 +8,7 @@ if [ "$ACTION" = "" ]; then
 	ACTION=make
 fi
 
-echo "-> $ACTION file-to-rc"
+echo "- $BUILD_PROJECT > $ACTION"
 
 cmdX(){
 	if ! "$@" ; then
@@ -18,4 +18,3 @@ cmdX(){
 }
 
 cmdX xyo-cc --mode=$ACTION @build/source/file-to-rc.compile
-
