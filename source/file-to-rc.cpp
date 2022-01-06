@@ -12,42 +12,46 @@
 #include <string.h>
 
 #include "xyo.hpp"
+#include "file-to-rc.hpp"
 #include "file-to-rc-copyright.hpp"
 #include "file-to-rc-license.hpp"
+#ifndef FILE_TO_RC_NO_VERSION
 #include "file-to-rc-version.hpp"
+#endif
 
-namespace Main {
+namespace FileToRC {
 
 	using namespace XYO;
 
-	class Application :
-		public virtual IMain {
-			XYO_DISALLOW_COPY_ASSIGN_MOVE(Application);
-		public:
-
-			inline Application() {};
-
-			void showUsage();
-			void showLicense();
-
-			int main(int cmdN, char *cmdS[]);
-	};
-
 	void Application::showUsage() {
 		printf("file-to-rc - Convert file to RC source\n");
-		printf("version %s build %s [%s]\n", FileToRc::Version::version(), FileToRc::Version::build(), FileToRc::Version::datetime());
-		printf("%s\n\n", FileToRc::Copyright::fullCopyright());
+		showVersion();
+		printf("%s\n\n", FileToRC::Copyright::fullCopyright());
 
 		printf("%s",
 			"options:\n"
+			"    --usage             this info\n"
 			"    --license           show license\n"
+			"    --version           show version\n"
+			"    --file-in=file      input file\n"
+			"    --file-out=file     output file\n"
+			"    --touch=file        touch file if changed input file\n"
+			"    --append            append content\n"
+
 		);
 		printf("\n");
 	};
 
 	void Application::showLicense() {
-		printf("%s", FileToRc::License::content());
+		printf("%s", FileToRC::License::content());
 	};
+
+	void Application::showVersion() {
+#ifndef FILE_TO_RC_NO_VERSION
+		printf("version %s build %s [%s]\n", FileToRC::Version::version(), FileToRC::Version::build(), FileToRC::Version::datetime());
+#endif
+	};
+
 
 	int Application::main(int cmdN, char *cmdS[]) {
 		int i;
@@ -69,13 +73,17 @@ namespace Main {
 				if(String::indexOf(opt, "=", 0, optIndex)) {
 					optValue = String::substring(opt, optIndex + 1);
 					opt = String::substring(opt, 0, optIndex);
+				};				
+				if (opt == "usage") {
+					showUsage();
+					return 0;
 				};
 				if (opt == "license") {
 					showLicense();
 					return 0;
 				};
-				if (opt == "usage") {
-					showUsage();
+				if (opt == "version") {
+					showVersion();
 					return 0;
 				};
 				if (opt == "name") {
@@ -150,4 +158,7 @@ namespace Main {
 
 };
 
-XYO_APPLICATION_MAIN_STD(Main::Application);
+#ifndef FILE_TO_RC_LIBRARY
+XYO_APPLICATION_MAIN_STD(FileToRC::Application);
+#endif
+

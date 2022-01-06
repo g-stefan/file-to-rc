@@ -9,7 +9,7 @@
 
 #include "file-to-rc-version.hpp"
 
-namespace FileToRc {
+namespace FileToRC {
 	namespace Version {
 
 		static const char *version_ = "$VERSION_VERSION";

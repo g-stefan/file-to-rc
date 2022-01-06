@@ -9,7 +9,7 @@
 
 #include "file-to-rc-copyright.hpp"
 
-namespace FileToRc {
+namespace FileToRC {
 	namespace Copyright {
 
 		static const char *copyright_ = "Copyright (c) Grigore Stefan";

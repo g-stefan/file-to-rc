@@ -10,7 +10,7 @@
 #ifndef FILE_TO_RC_LICENSE_HPP
 #define FILE_TO_RC_LICENSE_HPP
 
-namespace FileToRc {
+namespace FileToRC {
 	namespace License {
 		const char *content();
 		const char *shortContent();

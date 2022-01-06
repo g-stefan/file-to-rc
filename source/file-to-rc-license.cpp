@@ -9,7 +9,7 @@
 
 #include "file-to-rc-license.hpp"
 
-namespace FileToRc {
+namespace FileToRC {
 	namespace License {
 
 		static const char *license_ =
