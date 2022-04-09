@@ -16,7 +16,7 @@
 #include "file-to-rc-copyright.hpp"
 #include "file-to-rc-license.hpp"
 #ifndef FILE_TO_RC_NO_VERSION
-#include "file-to-rc-version.hpp"
+#	include "file-to-rc-version.hpp"
 #endif
 
 namespace FileToRC {
@@ -29,14 +29,14 @@ namespace FileToRC {
 		printf("%s\n\n", FileToRC::Copyright::fullCopyright());
 
 		printf("%s",
-			"options:\n"
-			"    --usage             this info\n"
-			"    --license           show license\n"
-			"    --version           show version\n"
-			"    --file-in=file      input file\n"
-			"    --file-out=file     output file\n"
-			"    --touch=file        touch file if changed input file\n"
-			"    --append            append content\n"
+		       "options:\n"
+		       "    --usage             this info\n"
+		       "    --license           show license\n"
+		       "    --version           show version\n"
+		       "    --file-in=file      input file\n"
+		       "    --file-out=file     output file\n"
+		       "    --touch=file        touch file if changed input file\n"
+		       "    --append            append content\n"
 
 		);
 		printf("\n");
@@ -51,7 +51,6 @@ namespace FileToRC {
 		printf("version %s build %s [%s]\n", FileToRC::Version::version(), FileToRC::Version::build(), FileToRC::Version::datetime());
 #endif
 	};
-
 
 	int Application::main(int cmdN, char *cmdS[]) {
 		int i;
@@ -70,10 +69,10 @@ namespace FileToRC {
 			if (StringCore::beginWith(cmdS[i], "--")) {
 				opt = &cmdS[i][2];
 				optValue = "";
-				if(String::indexOf(opt, "=", 0, optIndex)) {
+				if (String::indexOf(opt, "=", 0, optIndex)) {
 					optValue = String::substring(opt, optIndex + 1);
 					opt = String::substring(opt, 0, optIndex);
-				};				
+				};
 				if (opt == "usage") {
 					showUsage();
 					return 0;
@@ -88,7 +87,7 @@ namespace FileToRC {
 				};
 				if (opt == "name") {
 					stringName = optValue;
-					if(stringName.length() == 0) {
+					if (stringName.length() == 0) {
 						printf("Error: name is empty\n");
 						return 1;
 					};
@@ -96,7 +95,7 @@ namespace FileToRC {
 				};
 				if (opt == "file-in") {
 					fileNameIn = optValue;
-					if(fileNameIn.length() == 0) {
+					if (fileNameIn.length() == 0) {
 						printf("Error: file-in is empty\n");
 						return 1;
 					};
@@ -104,7 +103,7 @@ namespace FileToRC {
 				};
 				if (opt == "file-out") {
 					fileNameOut = optValue;
-					if(fileNameOut.length() == 0) {
+					if (fileNameOut.length() == 0) {
 						printf("Error: file-out is empty\n");
 						return 1;
 					};
@@ -113,7 +112,7 @@ namespace FileToRC {
 				if (opt == "touch") {
 					isTouch = true;
 					touchFileName = optValue;
-					if(touchFileName.length() == 0) {
+					if (touchFileName.length() == 0) {
 						printf("Error: touch filename is empty\n");
 						return 1;
 					};
@@ -126,30 +125,30 @@ namespace FileToRC {
 			};
 		};
 
-		if(stringName.length() == 0 ||
-			fileNameIn.length() == 0 ||
-			fileNameOut.length() == 0) {
+		if (stringName.length() == 0 ||
+		    fileNameIn.length() == 0 ||
+		    fileNameOut.length() == 0) {
 			showUsage();
 			return 1;
 		};
 
-		if(isTouch) {
-			if(Shell::fileExists(touchFileName)) {
-				if(Shell::compareLastWriteTime(touchFileName, fileNameIn) >= 0) {
+		if (isTouch) {
+			if (Shell::fileExists(touchFileName)) {
+				if (Shell::compareLastWriteTime(touchFileName, fileNameIn) >= 0) {
 					return 0;
 				};
 			};
 		};
 
-		if(!Util::fileToRc(
-				stringName,
-				fileNameIn,
-				fileNameOut,
-				append)) {
+		if (!Util::fileToRc(
+		        stringName,
+		        fileNameIn,
+		        fileNameOut,
+		        append)) {
 			return 1;
 		};
 
-		if(isTouch) {
+		if (isTouch) {
 			Shell::touchIfExists(touchFileName);
 		};
 
@@ -161,4 +160,3 @@ namespace FileToRC {
 #ifndef FILE_TO_RC_LIBRARY
 XYO_APPLICATION_MAIN_STD(FileToRC::Application);
 #endif
-
