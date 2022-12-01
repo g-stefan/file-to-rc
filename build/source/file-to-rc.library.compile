@@ -1,7 +1,0 @@
---lib file-to-rc
---def=FILE_TO_RC_LIBRARY
---src-hpp=source/file-to-rc.hpp
---build-include
---no-default-include
---install-include-direct
---use-project=xyo.static
