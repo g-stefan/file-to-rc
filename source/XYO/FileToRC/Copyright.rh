@@ -7,10 +7,9 @@
 #ifndef XYO_FILETORC_COPYRIGHT_RH
 #define XYO_FILETORC_COPYRIGHT_RH
 
-#define XYO_FILETORC_COPYRIGHT "Copyright (c) 2022 Grigore Stefan"
+#define XYO_FILETORC_COPYRIGHT "Copyright (c) 2022 Grigore Stefan <g_stefan@yahoo.com>"
 #define XYO_FILETORC_PUBLISHER "Grigore Stefan"
 #define XYO_FILETORC_COMPANY XYO_FILETORC_PUBLISHER
 #define XYO_FILETORC_CONTACT "g_stefan@yahoo.com"
-#define XYO_FILETORC_FULL_COPYRIGHT XYO_FILETORC_COPYRIGHT " <" XYO_FILETORC_CONTACT ">"
 
 #endif

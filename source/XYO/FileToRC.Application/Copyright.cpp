@@ -13,7 +13,6 @@ namespace XYO::FileToRC::Application::Copyright {
 	static const char *publisher_ = XYO_FILETORC_APPLICATION_PUBLISHER;
 	static const char *company_ = XYO_FILETORC_APPLICATION_COMPANY;
 	static const char *contact_ = XYO_FILETORC_APPLICATION_CONTACT;
-	static const char *fullCopyright_ = XYO_FILETORC_APPLICATION_FULL_COPYRIGHT;
 
 	const char *copyright() {
 		return copyright_;
@@ -29,10 +28,6 @@ namespace XYO::FileToRC::Application::Copyright {
 
 	const char *contact() {
 		return contact_;
-	};
-
-	const char *fullCopyright() {
-		return fullCopyright_;
 	};
 
 };
