@@ -14,7 +14,7 @@
 // -- Export
 
 #ifndef XYO_FILETORC_INTERNAL
-#	ifdef FILE_TO_RC_LIBRARY_INTERNAL
+#	ifdef FILE_TO_RC_INTERNAL
 #		define XYO_FILETORC_INTERNAL
 #	endif
 #endif
