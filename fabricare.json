@@ -12,7 +12,8 @@
 				"dependency" : [
 					"xyo-system"
 				],
-				"versionName" : "file-to-rc.library"
+				"versionName" : "file-to-rc.library",
+				"noRelease" : true
 			},
 			{
 				"name" : "file-to-rc.application",
@@ -26,7 +27,8 @@
 				"defines" : [
 					"XYO_FILETORC_APPLICATION_LIBRARY"
 				],
-				"linkVersion" : "file-to-rc"
+				"linkVersion" : "file-to-rc",
+				"noRelease" : true
 			},
 			{
 				"name" : "file-to-rc",
