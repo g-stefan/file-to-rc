@@ -8,11 +8,11 @@
 
 namespace XYO::FileToRC::Application::License {
 
-	const char *license() {
+	std::string license() {
 		return XYO::FileToRC::License::license();
 	};
 
-	const char *shortLicense() {
+	std::string shortLicense() {
 		return XYO::FileToRC::License::shortLicense();
 	};
 

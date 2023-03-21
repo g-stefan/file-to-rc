@@ -15,7 +15,7 @@ namespace XYO::FileToRC::Application {
 	void Application::showUsage() {
 		printf("FileToRC - Convert file to RC source\n");
 		showVersion();
-		printf("%s\n\n", FileToRC::Application::Copyright::copyright());
+		printf("%s\n\n", FileToRC::Application::Copyright::copyright().c_str());
 
 		printf("%s",
 		       "options:\n"
@@ -31,7 +31,7 @@ namespace XYO::FileToRC::Application {
 	};
 
 	void Application::showLicense() {
-		printf("%s", FileToRC::Application::License::license());
+		printf("%s", FileToRC::Application::License::license().c_str());
 	};
 
 	void Application::showVersion() {
@@ -151,7 +151,7 @@ namespace XYO::FileToRC::Application {
 			if (Shell::fileExists(fileNameOut)) {
 				if (Shell::compareLastWriteTime(fileNameIn, fileNameOut) <= 0) {
 					return 0;
-				};			
+				};
 			};
 		};
 
