@@ -15,7 +15,7 @@ namespace XYO::FileToRC::Application {
 	void Application::showUsage() {
 		printf("FileToRC - Convert file to RC source\n");
 		showVersion();
-		printf("%s\n\n", FileToRC::Application::Copyright::copyright().c_str());
+		printf("%s\n\n", FileToRC::Application::Copyright::copyright());
 
 		printf("%s",
 		       "options:\n"
@@ -81,9 +81,9 @@ namespace XYO::FileToRC::Application {
 			if (StringCore::beginWith(cmdLine[i], "--")) {
 				opt = cmdLine[i].index(2);
 				optValue = "";
-				if (String::indexOf(opt, "=", 0, optIndex)) {
-					optValue = String::substring(opt, optIndex + 1);
-					opt = String::substring(opt, 0, optIndex);
+				if (StringX::indexOf(opt, "=", 0, optIndex)) {
+					optValue = StringX::substring(opt, optIndex + 1);
+					opt = StringX::substring(opt, 0, optIndex);
 				};
 				if (opt == "usage") {
 					showUsage();
