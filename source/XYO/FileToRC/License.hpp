@@ -13,8 +13,8 @@
 
 namespace XYO::FileToRC::License {
 
-	std::string license();
-	std::string shortLicense();
+	XYO_FILETORC_EXPORT std::string license();
+	XYO_FILETORC_EXPORT std::string shortLicense();
 
 };
 

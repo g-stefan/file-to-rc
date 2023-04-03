@@ -12,10 +12,10 @@
 #endif
 
 namespace XYO::FileToRC::Copyright {
-	const char *copyright();
-	const char *publisher();
-	const char *company();
-	const char *contact();
+	XYO_FILETORC_EXPORT const char *copyright();
+	XYO_FILETORC_EXPORT const char *publisher();
+	XYO_FILETORC_EXPORT const char *company();
+	XYO_FILETORC_EXPORT const char *contact();
 };
 
 #endif

@@ -13,10 +13,10 @@
 
 namespace XYO::FileToRC::Version {
 
-	const char *version();
-	const char *build();
-	const char *versionWithBuild();
-	const char *datetime();
+	XYO_FILETORC_EXPORT const char *version();
+	XYO_FILETORC_EXPORT const char *build();
+	XYO_FILETORC_EXPORT const char *versionWithBuild();
+	XYO_FILETORC_EXPORT const char *datetime();
 
 };
 
