@@ -8,4 +8,4 @@
 #include <XYO/FileToRC/Copyright.rh>
 #include <XYO/FileToRC/Version.rh>
 
-XYO_APPLICATION_VERSION_INFO(XYO_FILETORC,"xyo-file-to-rc.dll","FileToRC - Convert file to RC source")
+XYO_PLATFORM_VERSION_INFO(XYO_FILETORC,"xyo-file-to-rc.dll","FileToRC - Convert file to RC source")
