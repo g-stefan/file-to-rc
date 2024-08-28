@@ -5,7 +5,7 @@
 		"projects" : [
 			{
 				"name" : "file-to-rc",
-				"make" : "lib",
+				"make" : "dll-or-lib",
 				"SPDX-License-Identifier": "MIT",
 				"sourcePath" : "XYO/FileToRC",
 				"dependency" : [
@@ -14,7 +14,7 @@
 				"versionName" : "file-to-rc.library"
 			},
 			{
-				"name" : "file-to-rc.application",
+				"name" : "file-to-rc.application.static",
 				"make" : "lib",
 				"SPDX-License-Identifier": "MIT",
 				"sourcePath" : "XYO/FileToRC.Application",
@@ -28,7 +28,7 @@
 			},
 			{
 				"name" : "file-to-rc",
-				"make" : "exe.static",
+				"make" : "exe",
 				"SPDX-License-Identifier": "MIT",
 				"sourcePath" : "XYO/FileToRC.Application",
 				"dependency" : [
