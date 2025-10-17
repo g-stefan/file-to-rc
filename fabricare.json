@@ -14,17 +14,33 @@
 				"versionName" : "file-to-rc.library"
 			},
 			{
+				"name": "file-to-rc.static",
+				"make": "lib",
+				"category": "make",
+				"SPDX-License-Identifier": "MIT",
+				"sourcePath" : "XYO/FileToRC",
+				"dependency" : [
+					"xyo-system.static"
+				],
+				"dependencyDefines" : [
+					"XYO_FILETORC_LIBRARY"
+				],
+				"linkVersion": "file-to-rc.library",
+				"crt": "static"
+			},
+			{
 				"name" : "file-to-rc.application.static",
 				"make" : "lib",
 				"SPDX-License-Identifier": "MIT",
 				"sourcePath" : "XYO/FileToRC.Application",
 				"dependency" : [
-					"file-to-rc"
+					"file-to-rc.static"
 				],
-				"defines" : [
+				"dependencyDefines" : [
 					"XYO_FILETORC_APPLICATION_LIBRARY"
 				],
-				"linkVersion" : "file-to-rc"
+				"linkVersion" : "file-to-rc",
+				"crt": "static"
 			},
 			{
 				"name" : "file-to-rc",
