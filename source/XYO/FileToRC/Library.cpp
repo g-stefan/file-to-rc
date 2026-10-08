@@ -17,8 +17,9 @@ namespace XYO::FileToRC {
 		FILE *input;
 		FILE *output;
 		uint16_t ch;
-		int flag;
-		int k;
+		size_t k;
+		int index;
+		int first;
 
 		input = fopen(fileNameIn, "rb");
 		if (input != nullptr) {
@@ -27,27 +28,34 @@ namespace XYO::FileToRC {
 
 				fprintf(output, "%s RCDATA {", stringName);
 
-				flag = 0;
+				// rc.exe splits long lines and breaks tokens at the split,
+				// keep 16 words (32 bytes) per line
+				index = 0;
+				first = 1;
 				do {
 					ch = 0x0A0A;
 					k = fread(&ch, 1, 2, input);
-					if (k == 2) {
-						if (flag == 1) {
-							fprintf(output, ",");
-						};
-						fprintf(output, "0x%04X", ch);
-						flag = 1;
+					if (k == 0) {
+						break;
 					};
+
+					if (first) {
+						first = 0;
+						fprintf(output, "\n\t");
+					} else {
+						fprintf(output, ",");
+						if (index == 0) {
+							fprintf(output, "\n\t");
+						};
+					};
+
+					fprintf(output, "0x%04X", ch);
+
+					++index;
+					index %= 16;
 				} while (k == 2);
 
-				if (k == 1) {
-					if (flag == 1) {
-						fprintf(output, ",");
-					};
-					fprintf(output, "0x%04X}\n", ch);
-				} else {
-					fprintf(output, "}\n");
-				};
+				fprintf(output, "\n}\n");
 
 				fclose(output);
 				fclose(input);
